@@ -8,7 +8,7 @@ interface InputProps {
 function Input({ placeholder }: InputProps) {
   return (
     <div className="search-box">
-      <MagnifyingGlassIcon size={30} />
+      <MagnifyingGlassIcon size={40} style={{ alignSelf: "center" }} />
       <input
         id="query"
         type="search"

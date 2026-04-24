@@ -1,10 +1,10 @@
 export interface Weather {
-  current: {
-    time: Date;
-    temperature_2m: Number;
-    relative_humidity_2m: Number;
-    is_day: Number;
-    rain: Number;
-    precipitation: Number;
+  daily: {
+    time: string[];
+    temperature_2m_max: number[];
+    temperature_2m_min: number[];
+    uv_index_max: number[];
+    precipitation_sum: number[];
+    relative_humidity_2m_mean: number[];
   };
 }

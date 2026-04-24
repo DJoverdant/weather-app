@@ -9,8 +9,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<div className="not-found">404</div>} />
       </Routes>
-
-      <section id="spacer"></section>
     </BrowserRouter>
   );
 }
