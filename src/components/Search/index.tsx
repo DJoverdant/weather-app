@@ -1,22 +1,26 @@
 import { MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { useState } from "react";
 import "./styles.css";
 
-interface InputProps {
+interface SearchProps {
   placeholder?: string;
 }
 
-function Input({ placeholder }: InputProps) {
+function Search({ placeholder }: SearchProps) {
+  const [searchValue, setSearchValue] = useState("");
+
   return (
-    <div className="search-box">
+    <div className="search">
       <MagnifyingGlassIcon size={40} style={{ alignSelf: "center" }} />
       <input
         id="query"
         type="search"
         placeholder={placeholder}
-        name="searchbar"
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
     </div>
   );
 }
 
-export default Input;
+export default Search;
