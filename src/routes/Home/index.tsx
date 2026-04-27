@@ -57,16 +57,14 @@ function Home() {
   return (
     <section className="canva">
       <div className="weather-card">
-        <h1>Weather</h1>
         {weatherData && (
           <>
             <div className="weather-card__today">
+              <h1>Weather</h1>
               <p>Temperature: {weatherData.current.temperature_2m}°C </p>
               <p>Preciptation: {weatherData.daily.precipitation_probability_max[0]}% </p>
               <p>Humidity: {weatherData.current.relative_humidity_2m}% </p>
             </div>
-
-            <div></div>
 
             {weatherData.daily.time.map((_, index) => (
               <div className="weather-card__days" key={index}>
