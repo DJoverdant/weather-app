@@ -1,4 +1,12 @@
-import { WarningIcon } from "@phosphor-icons/react";
+import {
+  WarningIcon,
+  ThermometerIcon,
+  ThermometerHotIcon,
+  ThermometerColdIcon,
+  DropIcon,
+  CloudSunIcon,
+  CloudRainIcon,
+} from "@phosphor-icons/react";
 import { useState, useEffect } from "react";
 import { type Weather } from "../../types/weather";
 import Modal from "../../components/Modal";
@@ -59,20 +67,38 @@ function Home() {
       <div className="weather-card">
         {weatherData && (
           <>
+            <h1>
+              <CloudSunIcon size={80} />
+              <span>Weather</span>
+            </h1>
             <div className="weather-card__today">
-              <h1>Weather</h1>
-              <p>Temperature: {weatherData.current.temperature_2m}°C </p>
-              <p>Preciptation: {weatherData.daily.precipitation_probability_max[0]}% </p>
-              <p>Humidity: {weatherData.current.relative_humidity_2m}% </p>
+              <p>
+                <ThermometerIcon size={30} /> {weatherData.current.temperature_2m}°C
+              </p>
+              <p>
+                <CloudRainIcon size={30} /> {weatherData.daily.precipitation_probability_max[0]}%
+              </p>
+              <p>
+                <DropIcon size={30} /> {weatherData.current.relative_humidity_2m}%
+              </p>
             </div>
 
             {weatherData.daily.time.map((_, index) => (
               <div className="weather-card__days" key={index}>
                 <h2>{formattedDates[index]}</h2>
-                <p>Max: {weatherData.daily.temperature_2m_max[index]}°C </p>
-                <p>Min: {weatherData.daily.temperature_2m_min[index]}°C </p>
-                <p>Preciptation: {weatherData.daily.precipitation_probability_max[index]}% </p>
-                <p>Humidity: {weatherData.daily.relative_humidity_2m_mean[index]}% </p>
+                <p>
+                  <ThermometerHotIcon size={30} /> {weatherData.daily.temperature_2m_max[index]}°C
+                </p>
+                <p>
+                  <ThermometerColdIcon size={30} /> {weatherData.daily.temperature_2m_min[index]}°C
+                </p>
+                <p>
+                  <CloudRainIcon size={30} />
+                  {weatherData.daily.precipitation_probability_max[index]}%
+                </p>
+                <p>
+                  <DropIcon size={30} /> {weatherData.daily.relative_humidity_2m_mean[index]}%
+                </p>
               </div>
             ))}
           </>
@@ -83,7 +109,14 @@ function Home() {
         <Search placeholder="Search" />
       </div>
 
-      {isError && <Modal title="Erro" description={errorMessage} icon={WarningIcon} onConfirm={handleCloseError} />}
+      {isError && (
+        <Modal
+          title="Erro"
+          description={errorMessage}
+          icon={WarningIcon}
+          onConfirm={handleCloseError}
+        />
+      )}
     </section>
   );
 }

@@ -42,16 +42,35 @@
 
 .weather-card {
   background: var(--pallete-white);
-  height: 50dvh;
   border-radius: var(--border-10);
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
-  padding-left: var(--space-20);
+  align-content: flex-start;
+  padding: var(--space-20);
+  gap: var(--space-20);
 
   h1 {
-    font-size: var(--font-heading-lg-size);
+    font-size: var(--font-heading-title-size);
+    margin: 0;
+  }
+}
+
+.weather-card__today {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  gap: var(--space-20);
+  flex-basis: 100%;
+
+  p {
+    background: var(--pallete-dark-blue);
+    color: var(--pallete-white);
+    border-radius: var(--border-10);
+    display: flex;
+    place-items: center;
+    padding: 20px;
+    gap: var(--space-4);
   }
 }
 
@@ -60,7 +79,15 @@
   color: var(--pallete-bright-yellow);
   border-radius: var(--border-10);
   padding: 20px;
-  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+
+  p {
+    display: flex;
+    place-items: center;
+    gap: var(--space-16);
+  }
 }
 
 .search-box {
