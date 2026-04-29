@@ -32,12 +32,20 @@
 
 .canva::before {
   left: 0;
-  background: linear-gradient(to left, var(--pallete-dark-blue) 0%, var(--black) 100%);
+  background: linear-gradient(
+    to left,
+    var(--pallete-dark-blue) 0%,
+    var(--black) 100%
+  );
 }
 
 .canva::after {
   right: 0;
-  background: linear-gradient(to right, var(--pallete-dark-blue) 0%, var(--black) 100%);
+  background: linear-gradient(
+    to right,
+    var(--pallete-dark-blue) 0%,
+    var(--black) 100%
+  );
 }
 
 .weather-card {
@@ -48,11 +56,32 @@
   justify-content: center;
   align-content: flex-start;
   padding: var(--space-20);
-  gap: var(--space-20);
+  gap: 0 var(--space-20);
+}
+
+.weather-card__header {
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: var(--font-heading-title-size);
     margin: 0;
+  }
+
+  h2 {
+    padding: var(--space-8);
+    align-self: center;
+    border-radius: var(--border-10);
+    color: #fff;
+    box-shadow:
+      rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+      rgba(0, 0, 0, 0.06) 0px 2px 1px,
+      rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px,
+      rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 }
 
@@ -71,6 +100,7 @@
     place-items: center;
     padding: 20px;
     gap: var(--space-4);
+    box-shadow: var(--shadow);
   }
 }
 
@@ -82,6 +112,7 @@
   display: flex;
   flex-direction: column;
   min-height: 200px;
+  box-shadow: var(--shadow);
 
   p {
     display: flex;
@@ -90,7 +121,42 @@
   }
 }
 
-.search-box {
+.loading {
+  background: var(--pallete-white);
+  border-radius: var(--border-10);
   display: flex;
+  align-items: center;
   justify-content: center;
+  height: 50dvh;
+  gap: var(--space-12);
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background-color: var(--black);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 35px;
+  margin: 0 5px;
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes scale-up4 {
+  20% {
+    background-color: var(--pallete-bright-blue);
+    transform: scaleY(1.5);
+  }
+
+  40% {
+    transform: scaleY(1);
+  }
 }

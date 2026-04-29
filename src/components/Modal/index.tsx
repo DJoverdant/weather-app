@@ -17,18 +17,18 @@ function Modal({
   onCancel,
 }: ModalProps) {
   return (
-    <div className="modalBackground">
+    <div className="modal-background">
       <div className="modal">
         {Icon && <Icon size={70} />}
         <p className="title">{title}</p>
         <p className="description">{description}</p>
-        <div className="buttonContainer">
-          <button className="acceptButton" onClick={onConfirm}>
+        <div className="button-container">
+          <button className="accept-button" onClick={onConfirm}>
             OK
           </button>
 
           {onCancel && (
-            <button className="declineButton" onClick={onCancel}>
+            <button className="decline-button" onClick={onCancel}>
               Cancel
             </button>
           )}
