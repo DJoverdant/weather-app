@@ -6,7 +6,7 @@
   font-family: var(--font-elms-sans);
   font-size: var(--font-heading-md-size);
 
-  color: var(--pallete-blue);
+  color: var(--pallete-dark-blue);
   background: var(--pallete-dark-blue);
 
   text-rendering: optimizeLegibility;

@@ -15,6 +15,7 @@
   align-self: center;
   gap: var(--space-20);
   width: 90dvw;
+  height: 100dvh;
 
   @media (max-width: 1024px) {
     padding: 32px 20px 24px;
@@ -62,17 +63,14 @@
 .weather-card__header {
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease-in-out;
 
   h1 {
-    font-size: var(--font-heading-title-size);
     margin: 0;
-  }
-
-  h2 {
-    padding: var(--space-8);
     align-self: center;
+    font-size: var(--font-heading-title-size);
+    padding: 0 var(--space-8);
     border-radius: var(--border-10);
-    color: #fff;
     box-shadow:
       rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
@@ -83,6 +81,22 @@
       rgba(0, 0, 0, 0.09) 0px 16px 8px,
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
+
+  h2 {
+    padding: var(--space-8);
+    margin-bottom: 0;
+    border-radius: var(--border-10);
+    align-self: center;
+    color: var(--pallete-white);
+    background: var(--pallete-dark-blue);
+    transition:
+      transform 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+  }
+
+  .weather-card:hover & h2 {
+    transform: scale(1.05);
+  }
 }
 
 .weather-card__today {
@@ -91,6 +105,7 @@
   place-items: center;
   gap: var(--space-20);
   flex-basis: 100%;
+  transition: transform 0.3s ease-in-out;
 
   p {
     background: var(--pallete-dark-blue);
@@ -101,6 +116,16 @@
     padding: 20px;
     gap: var(--space-4);
     box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 20px var(--pallete-bright-blue);
+      transform: scale(1.02);
+    }
+  }
+
+  .weather-card:hover & {
+    transform: scale(1.01);
   }
 }
 
@@ -108,16 +133,23 @@
   background: var(--pallete-dark-blue);
   color: var(--pallete-bright-yellow);
   border-radius: var(--border-10);
-  padding: 20px;
+  padding: var(--space-20);
   display: flex;
   flex-direction: column;
   min-height: 200px;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
 
   p {
     display: flex;
     place-items: center;
     gap: var(--space-16);
+    transition: color 0.3s ease-in-out;
   }
 }
 
@@ -137,7 +169,8 @@
   height: 20px;
   background-color: var(--black);
   border-radius: 10px;
-  animation: scale-up4 1s linear infinite;
+  animation: scale-up4 1s ease-in-out infinite;
+  transform-origin: bottom;
 }
 
 .bar:nth-child(2) {
@@ -151,11 +184,15 @@
 }
 
 @keyframes scale-up4 {
+  0%,
+  100% {
+    transform: scaleY(1);
+    background-color: var(--black);
+  }
   20% {
     background-color: var(--pallete-bright-blue);
     transform: scaleY(1.5);
   }
-
   40% {
     transform: scaleY(1);
   }
