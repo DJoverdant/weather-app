@@ -5,7 +5,7 @@
   </tr>
 </table>
 
-*This project features the use of open-meteo weather and geolocation APIs, you can find more about at:*
+*This project was based on this [idea](https://roadmap.sh/projects/weather-app) and features the use of open-meteo weather and geolocation APIs, you can find more about at:*
 
 **[Open Meteo](https://open-meteo.com/)**
 
